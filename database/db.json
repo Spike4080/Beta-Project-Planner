@@ -8,8 +8,8 @@
     },
     {
       "id": "2",
-      "title": "project manager 2",
-      "detail": "detail 2",
+      "title": "project manager 2 update",
+      "detail": "detail 2 update",
       "complete": true
     },
     {
@@ -22,6 +22,18 @@
       "id": "cb64",
       "title": "title 5",
       "detail": "detail 5",
+      "complete": false
+    },
+    {
+      "id": "87c1",
+      "title": "title 6",
+      "detail": "detail 6",
+      "complete": false
+    },
+    {
+      "id": "7c58",
+      "title": "project title 7",
+      "detail": "detail 7",
       "complete": false
     }
   ]

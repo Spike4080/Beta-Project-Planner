@@ -8,9 +8,9 @@
                     <span class="material-symbols-outlined" @click="deleteProject">
                     delete
                     </span>
-                    <span class="material-symbols-outlined">
-                    edit
-                    </span>
+                    <router-link :to="{name:'editProject',params:{id:project.id}}">
+                        <span class="material-symbols-outlined">edit</span>
+                    </router-link>
                     <span class="material-symbols-outlined" @click="completeProject">
                     done
                     </span>
@@ -90,19 +90,7 @@ export default {
     span {
         margin-right: 10px;
     }
-
-    span:nth-child(1) {
-        color: crimson;
-    }
-
-    span:nth-child(2) {
-        color: blue;
-    }
-
-    span:nth-child(3) {
-        color: green;
-    }
-
+    
     .complete {
         border-left-color: green;
     }

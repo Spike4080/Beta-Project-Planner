@@ -1,5 +1,5 @@
 <template>
-        <div class="project">
+        <div class="project" :class="{complete:project.complete}">
             <div class="flexing">
                 <div>
                     <h2 @click="showProject =! showProject">{{project.title}}</h2>
@@ -11,7 +11,7 @@
                     <span class="material-symbols-outlined">
                     edit
                     </span>
-                    <span class="material-symbols-outlined">
+                    <span class="material-symbols-outlined" @click="completeProject">
                     done
                     </span>
                 </div>
@@ -40,6 +40,26 @@ export default {
             })
             .catch(()=>{
 
+            })
+        },
+        completeProject() {
+            let completeRoute = this.api+this.project.id;
+            fetch(completeRoute,{
+                method:"PATCH",
+                headers:{
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(
+                    {
+                        complete:this.project.complete =! this.project.complete
+                    }
+                )
+            })
+            .then(()=>{
+                this.$emit('complete',this.project.id)
+            })
+            .catch((err)=>{
+                console.log("wrong code")
             })
         }
     }
@@ -81,6 +101,10 @@ export default {
 
     span:nth-child(3) {
         color: green;
+    }
+
+    .complete {
+        border-left-color: green;
     }
 
 </style>
